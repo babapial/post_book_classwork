@@ -1,0 +1,54 @@
+*{
+    font-family: "Roboto", sans-serif;
+}
+
+.login-form{
+    width: 80%;
+    border :0px solid black;
+    margin :0 auto ;
+    display: flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+.login-form h3{
+    text-align: center;
+    color:rgb(184, 150, 219)
+}
+
+form{
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+input[type="text"],input[type="password"]{
+    padding:10px;
+}
+
+.login-btn{
+    background-color: rgb(87, 88, 88);
+    color: white;
+    width: 140px;
+    padding: 9px;
+    border-radius:10px;
+    border: none;
+    font-size:10px;
+    margin: 0 auto;
+
+    
+}
+
+.error{
+    color: red;
+    
+}
+.error h3{
+    text-align: center;
+}
+
+.hidden{
+    display: none;
+}
