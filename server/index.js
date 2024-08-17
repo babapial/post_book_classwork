@@ -45,7 +45,7 @@ app.post("/getUserInfo",(req,res)=>{
 
     let query = db.query(getUserInfosql,[userId,password],(err,result)=>{
         if(err){
-            console.log("somethingg went wrong",err);
+            console.log("something went wrong",err);
             throw err;
         }
         else{
