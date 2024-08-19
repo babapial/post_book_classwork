@@ -54,6 +54,21 @@ app.post("/getUserInfo",(req,res)=>{
     } );
 })
 
+app.get('/getAllPosts',(req,res)=>{
+    const sqlForAllPosts = `SELECT users.userName as postedUserName , users.userImage as postedUserImage , posts_org.postedTime ,posts_org.postedTime ,posts_org.postText ,posts_org.postImageUrl from posts_org inner join users on posts_org.postedUserId=users.userId order by posts_org.postedTime desc`;
+
+    let query = db.query(sqlForAllPosts,(err,results) =>{
+        if(err){
+            console.log("error loding all posts from database : ",err);
+            throw err;
+        }
+        else{
+            console.log(results);
+            res.send(results);
+        }
+    })
+});
+
    
  
 
