@@ -82,7 +82,7 @@
 }
 
 .post-comment-input-field-holder{
-    width:60%;
+    width:70%;
 
 }
 
@@ -99,4 +99,7 @@
     color: white;
     border: none;
     border-radius: 5px;
+    margin-top: 10px; 
+    
+    
 }

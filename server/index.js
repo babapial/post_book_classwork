@@ -91,6 +91,25 @@ app.get('/getAllComments/:postId',(req,res)=>{
 
 });
 
+//adding new comment for a  post 
+app.post("/postComment" , ( req,res) =>{
+    const {commentOfPostId , commentedUserId , commentText , commentTime} = req.body;
+
+    //const dataFromFrontEnd = req.body;
+   // console.log(dataFromFrontEnd);  ///object 
+   let sqlForAddingNewComments = `INSERT INTO comments (commentId, commentsOfPostId, commentedUserId, commentText, commentTime) VALUES (NULL, ? , ? , ? , ?);`;
+   let query = db.query(sqlForAddingNewComments,[commentOfPostId,commentedUserId,commentText,commentTime],(err,result) => {
+      if(err){
+        console.log("error adding comments to the database ",err);
+      }
+      else{
+        res.send(result);
+      }
+   });
+});
+
 app.listen(port, () => {
     console.log(`server is a running on port ${port}`);
+
+    
 });
