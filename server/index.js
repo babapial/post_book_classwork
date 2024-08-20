@@ -55,7 +55,7 @@ app.post("/getUserInfo",(req,res)=>{
 })
 
 app.get('/getAllPosts',(req,res)=>{
-    const sqlForAllPosts = `SELECT users.userName as postedUserName , users.userImage as postedUserImage , posts_org.postedTime ,posts_org.postedTime ,posts_org.postText ,posts_org.postImageUrl from posts_org inner join users on posts_org.postedUserId=users.userId order by posts_org.postedTime desc`;
+    const sqlForAllPosts = `SELECT users.userName as postedUserName , users.userImage as postedUserImage , posts_org.postedTime ,posts_org.postId ,posts_org.postText ,posts_org.postImageUrl from posts_org inner join users on posts_org.postedUserId=users.userId order by posts_org.postedTime desc`;
 
     let query = db.query(sqlForAllPosts,(err,results) =>{
         if(err){
@@ -70,8 +70,27 @@ app.get('/getAllPosts',(req,res)=>{
 });
 
    
- 
+///getting commenst of a single post from
+
+app.get('/getAllComments/:postId',(req,res)=>{
+    let id = req.params.postId;
+
+    let sqlForAllComments = `select users.userName as commentedUserName , users.userImage as commentedUserImage, comments.commentId ,comments.commentsOfPostId,comments.commentText,comments.commentTime from comments inner join users on comments.commentedUserId = users.userId where comments.commentsOfPostId = ${id}`;
+//    find problem 
+
+ let query = db.query(sqlForAllComments,(err,result) => {
+    if(err){
+        console.log("error fetching comments from the database : ",err);
+        throw err;
+        //when throw err active then nodemon crush
+    }
+    else{
+        res.send(result);
+    }
+});
+
+});
 
 app.listen(port, () => {
-    console.log(`server isa running on port ${port}`);
+    console.log(`server is a running on port ${port}`);
 });
