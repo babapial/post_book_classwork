@@ -33,11 +33,22 @@
             <div>
                 <input type="text" id="newPost-image" placeholder="add post image url">
             </div>
+
+            
     
             <div>
                 <button onclick = "handleAddNewPost()" class="addPost-btn"> POST </button>
-    
             </div>
+
+            <div class="edit-btn">
+                <button onclick = "edit()" class="addPost-btn">edit</button>
+            </div>
+
+            <div class="delete-btn">
+                <button onclick = "dlt()" class="addPost-btn">delete</button>
+            </div>
+
+
         </article>
         
      </section>
@@ -349,6 +360,9 @@
                  </div>
              </div>
     </section>
+    <script src="/frontend/utils/calculateTimeDifference.js"></script>
     <script src="/frontend/fetchData.js"></script>
+    
+    
 </body>
 </html>

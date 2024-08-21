@@ -49,9 +49,16 @@ const showAllPosts = (allPosts) =>{
     postContainer.innerHTML = "";
 
     allPosts.forEach(async(post) => {
-        const postDiv = document.createElement('div');
-        postDiv.classList.add('post');
+        const postDiv = document.createElement("div");
+        postDiv.classList.add("post");
         
+
+        ///inner hmtl when writng fuction then come error
+        // my code ...   
+        // <span>${timeDifference(`${post.postedTime}`)}</span>
+
+        //previous
+        //<span>${post.postedTime}<span>
         postDiv.innerHTML = `
                    <div class="post-header">
                 <div class="post-user-image">
@@ -63,8 +70,8 @@ const showAllPosts = (allPosts) =>{
                 <div class="post-username-time">
                     <p class="post-username">${post.postedUserName}</p>
                     <div class="posted-time">
-                        <span>${post.postedTime}</span>
-                        <span>hours ago</span>
+                          <span>${post.postedTime}<span>
+                        <span>ago</span>
                     </div>
                 </div>
             </div>
