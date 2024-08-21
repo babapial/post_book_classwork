@@ -10,8 +10,38 @@
     <title>Postbook</title>
     <link rel="stylesheet" href="./postStyle.css">
 </head>
-<body onload="showLoggedUsername()">
-    <h1>Hello ,  <span id="logged-username">Username</span> </h1>
+<body onload ="checkLoggedInUser() ; onload =showLoggedUsername()">
+    <div class="header">
+        <h1>Hello ,  <span id="logged-username">Username</span> </h1>
+        <button onclick = "logOut()" class="logoutBtn">Logout</button>
+    </div>
+
+    <!-- add post content -->
+     <section id="add-post-coantainer">
+        <article>
+            <h2><b>Add New Post</b></h2>
+            <div>
+                <textarea 
+                    name = ""
+                    id = "newPost-text" 
+                    cols = "50" 
+                    rows ="5" 
+                    placeholder="add post text"
+                ></textarea>
+            </div>
+    
+            <div>
+                <input type="text" id="newPost-image" placeholder="add post image url">
+            </div>
+    
+            <div>
+                <button onclick = "handleAddNewPost()" class="addPost-btn"> POST </button>
+    
+            </div>
+        </article>
+        
+     </section>
+    
     
     <!-- post container -->
     <section id="post-container">

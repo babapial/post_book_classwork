@@ -108,6 +108,27 @@ app.post("/postComment" , ( req,res) =>{
    });
 });
 
+app.post("/addNewPost" , (req,res) =>{
+    //destructure object 
+
+    const {postedUserId, postedTime,postText,postImageUrl} = req.body;
+
+    //sql query for adding new post
+
+    let sqlForAddingNewPost = `INSERT INTO posts_org (postId, postedUserId, postedTime, postText, postImageUrl) VALUES (NULL, ? , ?, ?, ?)`;
+
+    let query = db.query(sqlForAddingNewPost , [postedUserId,postedTime,postText,postImageUrl] , (err,result) =>{
+        if(err){
+            console.log("error while adding new in database post ",err);
+            throw err;
+        }
+        else{
+            res.send(result);
+        }
+    }
+  );
+});
+
 app.listen(port, () => {
     console.log(`server is a running on port ${port}`);
 

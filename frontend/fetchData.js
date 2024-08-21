@@ -12,7 +12,21 @@ const showLoggedUsername = () =>{
     
 };
 
+const checkLoggedInUser = () =>{
+    let user = localStorage.getItem("loggedInUser");
+    if(user){
+        user = JSON.parse(user);
+    }
+    else{
+        window.location.href = "/frontend/index.html";
+    }
+};
 
+const logOut= () =>{
+    //clear local storage
+    localStorage.clear();
+    checkLoggedInUser();
+};
 
 const fetchAllPosts = async() =>{
     let data = [];
@@ -200,7 +214,71 @@ const fetchAllCommentsOfAPost = async(postId) =>{
 };
 
 
+//adding new post function
+const handleAddNewPost = async() =>{
+    // console.log("adding new post");
+
+    //geting user id from local storage
+    let user = localStorage.getItem("loggedInUser");
+    if(user){
+        user = JSON.parse(user);
+    }
+    const postedUserId = user.userId;
+
+    //time of the post 
+    let now = new Date();
+    
+    now.setMinutes(now.getMinutes() - now.getTimezoneOffset());
+    let timeOfPost = now.toISOString();
+
+    // post text
+    const postTextElement = document.getElementById("newPost-text");
+    const postText = postTextElement.value;
+
+    //post image
+    const postImageElement = document.getElementById("newPost-image");
+    const postImageUrl = postImageElement.value;
+
+    // creating psot object
+
+    const postObject = {
+        postedUserId : postedUserId,
+        postedTime : timeOfPost,
+        postText:postText,
+        postImageUrl:postImageUrl,
+    };
+    console.log("sending data server ",postObject);
+
+    try{
+        const res = await fetch("http://localhost:1500/addNewPost",{
+            method : "POST",
+            headers : {
+                "content-type": "application/json",
+            },
+            body : JSON.stringify(postObject),
+        });
+        const data = await res.json();
+
+    }
+    catch(err){
+        console.log("error while sending data to the server ",err);
+    }
+    finally{
+        location.reload();
+    }
+};
+
+
+
+
+
+
+
 
 ///called auto 
 fetchAllPosts();
 //showLoggedUsername();
+
+//auto 
+checkLoggedInUser();
+showLoggedUsername();

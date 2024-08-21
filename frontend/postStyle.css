@@ -1,6 +1,65 @@
 *{
     font-family: "Roboto", sans-serif;
 }
+.header{
+    width: 90%;
+    margin: 0 auto ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+
+}
+
+#add-post-coantainer article > h2 {
+    color:rgb(83, 83, 238);
+    
+}
+
+#newPost-text{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+#newPost-image{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+#add-post-coantainer{
+    border: 0px solid;
+    width: 90%;
+    margin: 20px auto;
+    display:flex;
+    justify-content: center;
+}
+.addPost-btn{
+    width: 100px;
+    padding: 10px;
+    background-color:green;
+    color:white;
+    font-weight:500;
+    border: none;
+    border-radius:10px;
+
+}
+
+.addPost-btn:hover{
+    background-color:rgb(90, 212, 90);
+    transition: 1s linear;
+    cursor: pointer;
+}
+.logoutBtn{
+    background-color: rgb(233, 58, 58);
+    color:white;
+    border: none;
+    padding:10px;
+    border-radius:7px;
+}
+
+.logoutBtn:hover{
+    background-color:rgb(238, 217, 217);
+    cursor: pointer;
+}
 #post-container{
     width: 90%;
     background-color: rgb(212, 182, 182);
