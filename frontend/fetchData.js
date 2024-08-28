@@ -137,6 +137,17 @@ const showAllPosts = (allPosts) =>{
             <div class="comment-btn-holder">
                     <button onClick = handlePostComment(${post.postId}) id="comment-btn" class="postComment-btn">Comment</button>
             </div> 
+
+
+
+
+                <div class="edit-btn">
+                    <button onclick = "edit(${post.postId})" class="addPost-btn">edit</button>
+                </div>
+                        
+                <div class="delete-btn">
+                    <button onclick = "dlt(${post.postId})" class="addPost-btn">delete</button>
+                </div>
         `;
 
         postDiv.appendChild(addNewCommentDiv);
@@ -273,6 +284,25 @@ const handleAddNewPost = async() =>{
     finally{
         location.reload();
     }
+};
+
+
+async function dlt(postId){
+    try {
+        const res = await fetch(`http://localhost:1500/postDelete/${postId}`,{
+            method : "DELETE",
+            headers : {
+                "content-type": "application/json",
+            },
+            
+        });
+        const data = await res.json();
+        fetchAllPosts();
+        
+    } catch (error) {
+        console.log("internal server error",error);
+    }
+
 };
 
 

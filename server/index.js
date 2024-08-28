@@ -129,6 +129,54 @@ app.post("/addNewPost" , (req,res) =>{
   );
 });
 
+app.delete("/postDelete/:postId",(req,res) => {
+    console.log(req.params.postId);
+   const id = req.params.postId;
+   let sql = `DELETE FROM posts_org WHERE postId = ${id};`;
+
+   let query = db.query(sql, id,(err,result) =>{
+    if(err){
+        console.log("error while adding new in database post ",err);
+        throw err;
+    }
+    else{
+        res.send(result);
+    }
+})
+});
+
+///update post
+
+// app.put("/updatePost/:postId", (req, res) => {
+//     // Extract postId from request parameters and the rest from the request body
+//     const postId = req.params.postId;
+//     const { postedUserId, postedTime, postText, postImageUrl } = req.body;
+
+//     // SQL query for updating the post
+//     let sqlForUpdatingPost = `
+//         UPDATE posts_org 
+//         SET postedUserId = ?, 
+//             postedTime = ?, 
+//             postText = ?, 
+//             postImageUrl = ? 
+//         WHERE postId = ?
+//     `;
+
+//     // Execute the query
+//     let query = db.query(sqlForUpdatingPost, [postedUserId, postedTime, postText, postImageUrl, postId], (err, result) => {
+//         if (err) {
+//             console.log("Error while updating the post in database", err);
+//             res.status(500).send("Error updating post");
+//         } else if (result.affectedRows === 0) {
+//             // No rows affected, meaning the postId might not exist
+//             res.status(404).send("Post not found");
+//         } else {
+//             res.send("Post updated successfully");
+//         }
+//     });
+// });
+
+
 app.listen(port, () => {
     console.log(`server is a running on port ${port}`);
 

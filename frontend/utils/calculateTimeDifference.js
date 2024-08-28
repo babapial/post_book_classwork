@@ -1,9 +1,9 @@
 // function timeDifference(dateTimeString){
 //     const now = new Date();
 //     const past = new Date(dateTimeString);
-
+//     // console.log(now-past);
 //     let timediff = Math.floor((now-past)/1000);
-//     // console.log(timediff);
+//      console.log(timediff);
 
 //     const days = Math.floor(timediff/(60*60*24));
 

@@ -13,8 +13,8 @@ const handleLogin = async () =>{
     const userInfo = await fetchUserInfo(user);
     //console.log(userInfo);
     const errorElement = document.getElementById("user-login-error");
-    if(userInfo.length == 0) {
-        console.log("data did not found");
+    if(userInfo.length === 0) {
+        //console.log("data did not found");
         errorElement.classList.remove("hidden");
     }
     else{

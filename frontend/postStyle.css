@@ -18,9 +18,15 @@
     border: 0px solid;
     padding-top: 15px;
     padding-bottom: 15px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
 }
 .delete-btn{
     padding-bottom: 5px;
+    text-align: center;
+    padding-top: 10px;
 }
 
 
