@@ -70,7 +70,7 @@ const showAllPosts = (allPosts) =>{
                 <div class="post-username-time">
                     <p class="post-username">${post.postedUserName}</p>
                     <div class="posted-time">
-                          <span>${post.postedTime}<span>
+                          <span>${timeDifference(`${post.postedTime}`)}<span>
                         <span>ago</span>
                     </div>
                 </div>
