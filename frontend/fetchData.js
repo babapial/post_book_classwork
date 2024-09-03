@@ -305,6 +305,17 @@ async function dlt(postId){
 
 };
 
+function edit() {
+    window.location.href = "/frontend/edit_post.html";
+}
+
+function handleAddNewPostinedit(){
+    window.history.back();
+}
+
+
+
+
 
 
 

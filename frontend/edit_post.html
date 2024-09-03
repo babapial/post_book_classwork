@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./postStyle.css">
+</head>
+<body>
+    <section id="add-post-coantainer">
+        <article>
+            <h2><b>Update Post</b></h2>
+            <div>
+                <textarea 
+                    name = ""
+                    id = "newPost-text" 
+                    cols = "50" 
+                    rows ="5" 
+                    placeholder="add post text"
+                ></textarea>
+            </div>
+    
+            <div>
+                <input type="text" id="newPost-image" placeholder="add post image url">
+            </div>
+
+            
+    
+            <div>
+                <button onclick = "handleAddNewPostinedit()" class="addPost-btn"> update </button>
+            </div>
+
+        </article>
+        
+     </section>
+     <script src="/frontend/fetchData.js"></script>
+</body>
+</html>
